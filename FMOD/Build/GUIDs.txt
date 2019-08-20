@@ -1,0 +1,7 @@
+{0135c954-f7c8-454c-ac50-2e548ab2717a} bank:/CharacterSounds
+{5aec6272-daa4-40cc-bede-c7142f9f6f02} bank:/GeneralUI
+{b8541294-df88-4857-b72a-9277f4383ea8} bank:/Master
+{20493240-aef3-0415-3163-188905cb3830} bank:/Master.strings
+{7298d200-879d-42db-93a6-c0899dc31a23} bank:/Music
+{62daa408-7aa8-46e6-918b-2fd937e0158f} bus:/
+{650be7f7-b6ba-4341-b02f-be459760e1e3} bus:/Reverb
