@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 134043811810659428}
   - component: {fileID: 1194185170319847874}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: straight attack
   m_TagString: attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1089765812739126861}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.33171818, y: -2.14, z: 0.03}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0.04, y: 0.03, z: 0}
-  speed: 0.09
+  speed: 0.014
 --- !u!58 &134043811810659428
 CircleCollider2D:
   m_ObjectHideFlags: 0
