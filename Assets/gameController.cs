@@ -12,12 +12,15 @@ public class gameController : MonoBehaviour, pausable
     public GameObject player, enemy;
     public GameObject lossUI, victoryUI, screenFlashPanelUI, pauseUI;
     private GameObject[] gameObjects, gameObjects2;
+    public int bombLimit;
+    public GameObject difficultyKeeper;
 
     public bool isPaused { get ; set ; }
 
     void Start()
     {
-        
+        difficultyKeeper = GameObject.FindGameObjectWithTag("numberKeeper");
+        bombLimit = difficultyKeeper.GetComponent<difficultyKeeeper>().bombNumber;
     }
 
     // Update is called once per frame
@@ -25,7 +28,7 @@ public class gameController : MonoBehaviour, pausable
     {
         if (!isPaused)
         {
-            if (Input.GetKeyDown("c"))
+            if (Input.GetKeyDown("c") && bombLimit>0)
             {
                 destroyAllEnemyAttacks();
             }
@@ -53,6 +56,7 @@ public class gameController : MonoBehaviour, pausable
     }
     void destroyAllEnemyAttacks()
     {
+        bombLimit -= 1;
         gameObjects = GameObject.FindGameObjectsWithTag("attack");
         for (var i = 0; i < gameObjects.Length; i++)
         {
@@ -65,6 +69,12 @@ public class gameController : MonoBehaviour, pausable
         Time.timeScale = 1f;
         SceneManager.LoadScene(1);
     }
+    public void goToMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
+    }
+
     void gamePause()
     {
         pauseUI.SetActive(true);

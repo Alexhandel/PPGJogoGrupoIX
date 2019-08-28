@@ -7,23 +7,26 @@ public class playercontroller : MonoBehaviour, pausable
 {
     // Start is called before the first frame update 
 
-    public float speed, radius, currentShield, maxShieldMeter;
+    public float speed, radius, currentShield, maxShieldMeter, invulTimer, invulTime;
     private float boundaryUp = 0.372f;
     private float boundaryDown = -0.778f;
     private float boundaryLeft = -1.196f;
     private float boundaryRight = 1.198f;
-    public int health;
-    public bool alive, isShieldUp;
+    public int health, maxHealth;
+    public bool alive, isShieldUp, isInvul;
     public Slider shieldGaugeSlider;
+    public GameObject difficultyKeeper;
 
     public bool isPaused { get; set; }
 
     void Start()
     {
-        //radius = 0.5f;
+        difficultyKeeper = GameObject.FindGameObjectWithTag("numberKeeper");
+        maxHealth= difficultyKeeper.GetComponent<difficultyKeeeper>().playerHealth;
         alive = true;
         isShieldUp = false;
         currentShield = maxShieldMeter;
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -31,6 +34,16 @@ public class playercontroller : MonoBehaviour, pausable
     {
         if (!isPaused)
         {
+            if (isInvul)
+            {
+                invulTimer += Time.deltaTime;
+                if (invulTimer>=invulTime)
+                {
+                    invulTimer = 0;
+                    isInvul = false;
+                    this.gameObject.GetComponent<SpriteRenderer>().color = new Color(this.gameObject.GetComponent<SpriteRenderer>().color.r, this.gameObject.GetComponent<SpriteRenderer>().color.g, this.gameObject.GetComponent<SpriteRenderer>().color.b, 1f);
+                }
+            }
             changeAttackPosition();
             if (Input.GetKeyDown("space"))
             {
@@ -82,10 +95,12 @@ public class playercontroller : MonoBehaviour, pausable
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Debug.Log("colidiuAA");
-        if (collision.tag == "attack" && !isShieldUp)
+        if (collision.tag == "attack" && !isShieldUp && !isInvul)
         {
             Debug.Log("colidiuAA");
             health -= 1;
+            isInvul = true;
+            this.gameObject.GetComponent<SpriteRenderer>().color = new Color(this.gameObject.GetComponent<SpriteRenderer>().color.r, this.gameObject.GetComponent<SpriteRenderer>().color.g, this.gameObject.GetComponent<SpriteRenderer>().color.b,0.3f);
             if (health==0)
             {
                 alive = false;

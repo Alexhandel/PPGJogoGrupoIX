@@ -11,22 +11,32 @@ public class enemyController : MonoBehaviour, pausable
     private GameObject temp;
     private Vector3 heading;
     public float timer1, timer2, timer3, timer4, timer5, shieldTimer, phase2AttackSpeedMultiplier;
-    public float attack1Time, attack2Time, attack3Time, attack4Time, attack5Time, shieldUpTime, shieldDownTime;
+    public float attack1Time, attack2Time, attack3Time, attack4Time, attack5Time, shieldUpTime, shieldDownTime, attackSpeed;
     public int health;
     public bool alive, isShieldOn;
     private int stage, maxHealth;
     public Vector3 direction1;
+    public GameObject difficultyKeeper;
 
     public bool isPaused { get; set; }
 
     // Start is called before the first frame update
     void Start()
     {
+        difficultyKeeper = GameObject.FindGameObjectWithTag("numberKeeper");
+        health = difficultyKeeper.GetComponent<difficultyKeeeper>().enemyHealth;
+        shieldDownTime = difficultyKeeper.GetComponent<difficultyKeeeper>().enemyShieldTimer;
+        attackSpeed = difficultyKeeper.GetComponent<difficultyKeeeper>().enemyAttackSpeed;
         timer1 = 0;
         alive = true;
         stage = 1;
         maxHealth = health;
         isShieldOn = true;
+        attack1Time = attack1Time * attackSpeed;
+        attack2Time = attack2Time * attackSpeed;
+        attack3Time = attack3Time * attackSpeed;
+        attack4Time = attack4Time * attackSpeed;
+        attack5Time = attack5Time * attackSpeed;
     }
 
     // Update is called once per frame
