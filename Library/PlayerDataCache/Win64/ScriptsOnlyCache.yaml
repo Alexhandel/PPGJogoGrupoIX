@@ -88,15 +88,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10054}
     - Class: 114
-      Script: {instanceID: 10172}
+      Script: {instanceID: 10174}
     - Class: 114
-      Script: {instanceID: 10176}
+      Script: {instanceID: 10178}
     - Class: 114
-      Script: {instanceID: 10216}
+      Script: {instanceID: 10218}
     - Class: 114
-      Script: {instanceID: 10466}
+      Script: {instanceID: 10468}
     - Class: 114
-      Script: {instanceID: 10520}
+      Script: {instanceID: 10522}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -153,18 +153,20 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10064}
     - Class: 114
-      Script: {instanceID: 10172}
+      Script: {instanceID: 10122}
     - Class: 114
-      Script: {instanceID: 10288}
+      Script: {instanceID: 10174}
     - Class: 114
-      Script: {instanceID: 10388}
+      Script: {instanceID: 10290}
     - Class: 114
-      Script: {instanceID: 18584}
+      Script: {instanceID: 10390}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
     - Class: 157
+      Script: {instanceID: 0}
+    - Class: 212
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -675,7 +677,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAsset
   - hash:
       serializedVersion: 2
-      Hash: b81cd073ddd774835634476cde1f8185
+      Hash: b356f7953c914fdc60bfe9f3df9b56b2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: gameController
@@ -801,13 +803,19 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
+      Hash: 5710fcfc63b3f35118745d3dbbb69785
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: difficultyKeeeper
+  - hash:
+      serializedVersion: 2
       Hash: ee0cef6caaac8ae485bfa82f000f0f7b
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: 0205fb763ae6282598a881fb676ee376
+      Hash: 2c39c112c5984e42ce0a19809adf5dd0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: playercontroller
@@ -861,7 +869,7 @@ ScriptsOnlyBuild:
     className: TMP_ColorGradient
   - hash:
       serializedVersion: 2
-      Hash: d53e7dd8f551b15190d29944782cb855
+      Hash: f4589015c57ae2106225916cedaa4cf3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: enemyController
@@ -889,14 +897,8 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 5710fcfc63b3f35118745d3dbbb69785
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: difficultyKeeeper
   platform: 19
   scenePathNames:
   - Assets/Scenes/Start Menu.unity
   - Assets/Scenes/Battle.unity
-  playerPath: C:/Users/Alex Handel/PPGjogo/build0_4/PPGjogo.exe
+  playerPath: C:/Users/Alex Handel/Desktop/build0_5/PPGjogo.exe

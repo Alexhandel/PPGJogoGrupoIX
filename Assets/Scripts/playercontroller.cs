@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class playercontroller : MonoBehaviour, pausable
 {
@@ -14,7 +15,8 @@ public class playercontroller : MonoBehaviour, pausable
     private float boundaryRight = 1.198f;
     public int health, maxHealth;
     public bool alive, isShieldUp, isInvul;
-    public Slider shieldGaugeSlider;
+    public Slider shieldGaugeSlider, healthSlider;
+    public Sprite front, back, left, right;
     public GameObject difficultyKeeper;
 
     public bool isPaused { get; set; }
@@ -27,6 +29,8 @@ public class playercontroller : MonoBehaviour, pausable
         isShieldUp = false;
         currentShield = maxShieldMeter;
         health = maxHealth;
+        healthSlider.maxValue = maxHealth;
+        shieldGaugeSlider.maxValue = maxShieldMeter;
     }
 
     // Update is called once per frame
@@ -74,6 +78,7 @@ public class playercontroller : MonoBehaviour, pausable
                 }
             }
             shieldGaugeSlider.value = currentShield;
+            healthSlider.value = health;
             if (Input.GetKey("up") && !(transform.position.y + radius > boundaryUp))
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y + speed);
@@ -113,15 +118,20 @@ public class playercontroller : MonoBehaviour, pausable
         if (Input.GetKeyDown("up"))
         {
             transform.rotation = Quaternion.Euler(0f, 0f, 90f);
-        }else if (Input.GetKeyDown("down"))
+            gameObject.GetComponent<SpriteRenderer>().sprite = back;
+        }
+        else if (Input.GetKeyDown("down"))
         {
             transform.rotation = Quaternion.Euler(0f, 0f, -90f);
+            gameObject.GetComponent<SpriteRenderer>().sprite = front;
         } else if (Input.GetKeyDown("left"))
         {
             transform.rotation = Quaternion.Euler(0f, 0f, 180f);
+            gameObject.GetComponent<SpriteRenderer>().sprite = left;
         } else if (Input.GetKeyDown("right"))
         {
             transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            gameObject.GetComponent<SpriteRenderer>().sprite = right;
         }
     }
     void playerAttack()

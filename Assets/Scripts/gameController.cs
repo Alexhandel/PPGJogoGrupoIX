@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public interface pausable
 {
@@ -10,7 +11,7 @@ public interface pausable
 public class gameController : MonoBehaviour, pausable
 {
     public GameObject player, enemy;
-    public GameObject lossUI, victoryUI, screenFlashPanelUI, pauseUI;
+    public GameObject lossUI, victoryUI, screenFlashPanelUI, pauseUI, bombUI;
     private GameObject[] gameObjects, gameObjects2;
     public int bombLimit;
     public GameObject difficultyKeeper;
@@ -21,6 +22,7 @@ public class gameController : MonoBehaviour, pausable
     {
         difficultyKeeper = GameObject.FindGameObjectWithTag("numberKeeper");
         bombLimit = difficultyKeeper.GetComponent<difficultyKeeeper>().bombNumber;
+        bombUI.GetComponent<TextMeshProUGUI>().text = "x " + bombLimit;
     }
 
     // Update is called once per frame
@@ -62,7 +64,8 @@ public class gameController : MonoBehaviour, pausable
         {
             Destroy(gameObjects[i]);
         }
-        screenFlashPanelUI.SetActive(true);    
+        screenFlashPanelUI.SetActive(true);
+        bombUI.GetComponent<TextMeshProUGUI>().text = "x " + bombLimit;
     }
     public void gameReset()
     {
