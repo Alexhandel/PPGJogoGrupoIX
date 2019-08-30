@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class enemyController : MonoBehaviour, pausable
 
 {
     public GameObject player, bounceAttackPrefab, straightAttackPrefab, explodingAttackPrefab, homingAttackPrefab;
+    public GameObject healthUI;
+    public Sprite phase2Face;
     private GameObject temp;
     private Vector3 heading;
     public float timer1, timer2, timer3, timer4, timer5, shieldTimer, phase2AttackSpeedMultiplier;
@@ -42,6 +45,7 @@ public class enemyController : MonoBehaviour, pausable
         attack3Time = attack3Time * attackSpeed;
         attack4Time = attack4Time * attackSpeed;
         attack5Time = attack5Time * attackSpeed;
+        healthUI.GetComponentInChildren<Slider>().maxValue = health;
     }
 
     // Update is called once per frame
@@ -49,8 +53,10 @@ public class enemyController : MonoBehaviour, pausable
     {
         if (!isPaused)
         {
+            healthUI.GetComponentInChildren<Slider>().value = health;
             if (stage == 1 && health <= (maxHealth / 2))
             {
+                healthUI.GetComponent<Image>().sprite = phase2Face;
                 timer1 = 0;
                 timer2 = 0;
                 timer3 = 0;
@@ -88,7 +94,7 @@ public class enemyController : MonoBehaviour, pausable
                 }
                 if (timer4 >= attack4Time)
                 {
-                    //circleAttack1();
+                    circleAttack1();
                     timer4 = 0;
                 }
                 if (timer5 >= attack5Time)
@@ -174,7 +180,7 @@ public class enemyController : MonoBehaviour, pausable
     }
     void homingAttack()
     {
-        Instantiate(homingAttackPrefab, transform.position + direction1 * 1.6f, transform.rotation);
+        Instantiate(homingAttackPrefab, transform.position, transform.rotation);
     }
 
    
