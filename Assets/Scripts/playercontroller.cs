@@ -25,6 +25,10 @@ public class playercontroller : MonoBehaviour, pausable
     public string playerHurtSound = "event:/SFX/Player/EnzoHit";
     [FMODUnity.EventRef]
     public string playerShieldHitSound = "event:/SFX/Player/EnzoShieldHit";
+    [FMODUnity.EventRef]
+    public string playerAtkSound = "event:/SFX/Player/EnzoAttack";
+    [FMODUnity.EventRef]
+    public string playerShieldSound = "event:/SFX/Player/EnzoShield";
 
     void Start()
     {
@@ -147,11 +151,13 @@ public class playercontroller : MonoBehaviour, pausable
     void playerAttack()
     {
         transform.Find("player attack").gameObject.SetActive(true);
+        FMODUnity.RuntimeManager.PlayOneShot(playerAtkSound, transform.position);
     }
     void activateShield()
     {
         isShieldUp = true;
         transform.Find("Player Shield").gameObject.SetActive(true);
+        FMODUnity.RuntimeManager.PlayOneShot(playerShieldSound, transform.position);
     }
     void deactivateShield()
     {

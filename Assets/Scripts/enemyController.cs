@@ -27,6 +27,9 @@ public class enemyController : MonoBehaviour, pausable
     public string enemyHurtSound = "event:/SFX/Enemies/Witch/WitchHit";
     [FMODUnity.EventRef]
     public string enemyShieldHitSound = "event:/SFX/Enemies/Witch/WitchShieldHit";
+    [FMODUnity.EventRef]
+    public string enemySpellAreaSound = "event:/SFX/Enemies/Witch/WitchSpellArea";
+    
 
     // Start is called before the first frame update
     void Start()
@@ -177,6 +180,7 @@ public class enemyController : MonoBehaviour, pausable
                 }
             }
         }
+        FMODUnity.RuntimeManager.PlayOneShot(enemySpellAreaSound, transform.position);
     }
     void homingAttack()
     {

@@ -17,6 +17,9 @@ public class gameController : MonoBehaviour, pausable
     public GameObject difficultyKeeper;
     public MusicController musicSystem;
 
+    [FMODUnity.EventRef]
+    public string playerBombSound = "event:/SFX/Player/EnzoBomb";
+
     public bool isPaused { get ; set ; }
 
     void Start()
@@ -68,6 +71,7 @@ public class gameController : MonoBehaviour, pausable
         }
         screenFlashPanelUI.SetActive(true);
         bombUI.GetComponent<TextMeshProUGUI>().text = "x " + bombLimit;
+        FMODUnity.RuntimeManager.PlayOneShot(playerBombSound, transform.position);
     }
     public void gameReset()
     {
