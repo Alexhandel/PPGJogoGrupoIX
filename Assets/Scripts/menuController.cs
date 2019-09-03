@@ -38,7 +38,7 @@ public class menuController : MonoBehaviour
         }
         else if (diffi=="medium")
         {
-            difficultyKeeper.GetComponent<difficultyKeeeper>().enemyHealth = 10;
+            difficultyKeeper.GetComponent<difficultyKeeeper>().enemyHealth = 9;
             difficultyKeeper.GetComponent<difficultyKeeeper>().playerHealth = 10;
             difficultyKeeper.GetComponent<difficultyKeeeper>().bombNumber = 2;
             difficultyKeeper.GetComponent<difficultyKeeeper>().enemyAttackSpeed = 1f;
@@ -47,7 +47,7 @@ public class menuController : MonoBehaviour
         }
         else if (diffi == "hard")
         {
-            difficultyKeeper.GetComponent<difficultyKeeeper>().enemyHealth = 14;
+            difficultyKeeper.GetComponent<difficultyKeeeper>().enemyHealth = 12;
             difficultyKeeper.GetComponent<difficultyKeeeper>().playerHealth = 8;
             difficultyKeeper.GetComponent<difficultyKeeeper>().bombNumber = 1;
             difficultyKeeper.GetComponent<difficultyKeeeper>().enemyAttackSpeed = 0.8f;

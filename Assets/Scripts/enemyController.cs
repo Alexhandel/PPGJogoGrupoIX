@@ -10,14 +10,14 @@ public class enemyController : MonoBehaviour, pausable
 {
     public GameObject player, bounceAttackPrefab, straightAttackPrefab, explodingAttackPrefab, homingAttackPrefab;
     public GameObject healthUI;
-    public Sprite phase2Face;
+    public Sprite phase2Face, phase3Face;
     private GameObject temp;
     private Vector3 heading;
     public float timer1, timer2, timer3, timer4, timer5, shieldTimer, phase2AttackSpeedMultiplier;
     public float attack1Time, attack2Time, attack3Time, attack4Time, attack5Time, shieldUpTime, shieldDownTime, attackSpeed;
     public int health;
     public bool alive, isShieldOn;
-    private int stage, maxHealth;
+    private int face, stage, maxHealth;
     public Vector3 direction1;
     public GameObject difficultyKeeper;
 
@@ -33,6 +33,7 @@ public class enemyController : MonoBehaviour, pausable
         timer1 = 0;
         alive = true;
         stage = 1;
+        face = 1;
         maxHealth = health;
         isShieldOn = true;
         attack1Time = attack1Time * attackSpeed;
@@ -49,9 +50,18 @@ public class enemyController : MonoBehaviour, pausable
         if (!isPaused)
         {
             healthUI.GetComponentInChildren<Slider>().value = health;
-            if (stage == 1 && health <= (maxHealth / 2))
+            if (face==1 && health <= (2*maxHealth / 3))
             {
                 healthUI.GetComponent<Image>().sprite = phase2Face;
+                face = 2;
+            }
+            else if (face == 2 && health <= (maxHealth / 3))
+            {
+                healthUI.GetComponent<Image>().sprite = phase3Face;
+            }
+            if (stage == 1 && health <= (maxHealth / 2))
+            {
+
                 timer1 = 0;
                 timer2 = 0;
                 timer3 = 0;

@@ -22,7 +22,7 @@ public class gameController : MonoBehaviour, pausable
     {
         difficultyKeeper = GameObject.FindGameObjectWithTag("numberKeeper");
         bombLimit = difficultyKeeper.GetComponent<difficultyKeeeper>().bombNumber;
-        bombUI.GetComponent<TextMeshProUGUI>().text = "x " + bombLimit;
+        bombUI.GetComponent<TextMeshProUGUI>().text = "" + bombLimit;
     }
 
     // Update is called once per frame
@@ -65,7 +65,7 @@ public class gameController : MonoBehaviour, pausable
             Destroy(gameObjects[i]);
         }
         screenFlashPanelUI.SetActive(true);
-        bombUI.GetComponent<TextMeshProUGUI>().text = "x " + bombLimit;
+        bombUI.GetComponent<TextMeshProUGUI>().text = "" + bombLimit;
     }
     public void gameReset()
     {
