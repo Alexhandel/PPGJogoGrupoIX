@@ -21,15 +21,6 @@ public class playercontroller : MonoBehaviour, pausable
 
     public bool isPaused { get; set; }
 
-    [FMODUnity.EventRef]
-    public string playerHurtSound = "event:/SFX/Player/EnzoHit";
-    [FMODUnity.EventRef]
-    public string playerShieldHitSound = "event:/SFX/Player/EnzoShieldHit";
-    [FMODUnity.EventRef]
-    public string playerAtkSound = "event:/SFX/Player/EnzoAttack";
-    [FMODUnity.EventRef]
-    public string playerShieldSound = "event:/SFX/Player/EnzoShield";
-
     void Start()
     {
         difficultyKeeper = GameObject.FindGameObjectWithTag("numberKeeper");
@@ -112,7 +103,6 @@ public class playercontroller : MonoBehaviour, pausable
         if (collision.tag == "attack" && !isShieldUp && !isInvul)
         {
             Debug.Log("colidiuAA");
-            FMODUnity.RuntimeManager.PlayOneShot(playerHurtSound, transform.position);
             health -= 1;
             isInvul = true;
             this.gameObject.GetComponent<SpriteRenderer>().color = new Color(this.gameObject.GetComponent<SpriteRenderer>().color.r, this.gameObject.GetComponent<SpriteRenderer>().color.g, this.gameObject.GetComponent<SpriteRenderer>().color.b,0.3f);
@@ -121,10 +111,6 @@ public class playercontroller : MonoBehaviour, pausable
                 alive = false;
                 this.gameObject.SetActive(false);
             }
-        }
-        if (collision.tag == "attack" && isShieldUp)
-        {
-            FMODUnity.RuntimeManager.PlayOneShot(playerShieldHitSound, transform.position);
         }
     }
     void changeAttackPosition()
@@ -151,13 +137,11 @@ public class playercontroller : MonoBehaviour, pausable
     void playerAttack()
     {
         transform.Find("player attack").gameObject.SetActive(true);
-        FMODUnity.RuntimeManager.PlayOneShot(playerAtkSound, transform.position);
     }
     void activateShield()
     {
         isShieldUp = true;
         transform.Find("Player Shield").gameObject.SetActive(true);
-        FMODUnity.RuntimeManager.PlayOneShot(playerShieldSound, transform.position);
     }
     void deactivateShield()
     {

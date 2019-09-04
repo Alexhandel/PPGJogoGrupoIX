@@ -15,10 +15,6 @@ public class gameController : MonoBehaviour, pausable
     private GameObject[] gameObjects, gameObjects2;
     public int bombLimit;
     public GameObject difficultyKeeper;
-    public MusicController musicSystem;
-
-    [FMODUnity.EventRef]
-    public string playerBombSound = "event:/SFX/Player/EnzoBomb";
 
     public bool isPaused { get ; set ; }
 
@@ -26,7 +22,7 @@ public class gameController : MonoBehaviour, pausable
     {
         difficultyKeeper = GameObject.FindGameObjectWithTag("numberKeeper");
         bombLimit = difficultyKeeper.GetComponent<difficultyKeeeper>().bombNumber;
-        musicSystem.startMusic();
+        bombUI.GetComponent<TextMeshProUGUI>().text = "" + bombLimit;
     }
 
     // Update is called once per frame
@@ -69,18 +65,16 @@ public class gameController : MonoBehaviour, pausable
             Destroy(gameObjects[i]);
         }
         screenFlashPanelUI.SetActive(true);
-        FMODUnity.RuntimeManager.PlayOneShot(playerBombSound, transform.position);
+        bombUI.GetComponent<TextMeshProUGUI>().text = "" + bombLimit;
     }
     public void gameReset()
     {
         Time.timeScale = 1f;
-        musicSystem.stopMusic();
         SceneManager.LoadScene(1);
     }
     public void goToMenu()
     {
         Time.timeScale = 1f;
-        musicSystem.stopMusic();
         SceneManager.LoadScene(0);
     }
 
