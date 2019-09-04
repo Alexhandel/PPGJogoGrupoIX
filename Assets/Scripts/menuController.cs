@@ -6,10 +6,16 @@ using UnityEngine.SceneManagement;
 public class menuController : MonoBehaviour
 {
     public GameObject difficultyKeeper, startUI, difficultyUI;
+
+    [FMODUnity.EventRef]
+    public string music = "event:/Music/Menu";
+    FMOD.Studio.EventInstance musicEv;
     // Start is called before the first frame update
     void Start()
     {
         difficultyKeeper = GameObject.FindGameObjectWithTag("numberKeeper");
+        musicEv = FMODUnity.RuntimeManager.CreateInstance(music);
+        musicEv.start();
     }
 
     // Update is called once per frame
@@ -54,5 +60,6 @@ public class menuController : MonoBehaviour
             difficultyKeeper.GetComponent<difficultyKeeeper>().enemyShieldTimer = 1f;
 
         }
+        musicEv.stop();
     }
 }
