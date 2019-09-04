@@ -23,6 +23,14 @@ public class enemyController : MonoBehaviour, pausable
 
     public bool isPaused { get; set; }
 
+    [FMODUnity.EventRef]
+    public string enemyHurtSound = "event:/SFX/Enemies/Witch/WitchHit";
+    [FMODUnity.EventRef]
+    public string enemyShieldHitSound = "event:/SFX/Enemies/Witch/WitchShieldHit";
+    [FMODUnity.EventRef]
+    public string enemySpellAreaSound = "event:/SFX/Enemies/Witch/WitchSpellArea";
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -133,10 +141,15 @@ public class enemyController : MonoBehaviour, pausable
         Debug.Log("enemycollision");
         if (collision.tag=="playerAttack" && !isShieldOn)
         {
+            FMODUnity.RuntimeManager.PlayOneShot(enemyHurtSound, transform.position);
             health -= 1;
             isShieldOn = true;
             shieldTimer = 0;
             transform.Find("Enemy Shield").gameObject.SetActive(true);
+        }
+        if (collision.tag == "playerAttack" && isShieldOn)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(enemyShieldHitSound, transform.position);
         }
     }
     void straightAttack()
@@ -177,6 +190,7 @@ public class enemyController : MonoBehaviour, pausable
                 }
             }
         }
+        FMODUnity.RuntimeManager.PlayOneShot(enemySpellAreaSound, transform.position);
     }
     void homingAttack()
     {

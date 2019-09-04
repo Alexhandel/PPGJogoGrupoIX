@@ -16,6 +16,8 @@ public class explodingBulletController : MonoBehaviour, pausable
 
     public bool isPaused { get; set; }
 
+    [FMODUnity.EventRef]
+    public string enemySpellSplitSound = "event:/SFX/Enemies/Witch/WitchSpellSplit";
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +52,7 @@ public class explodingBulletController : MonoBehaviour, pausable
     }
     void burst()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(enemySpellSplitSound, transform.position);
         temp = Instantiate(bulletPrefab, transform.position, transform.rotation);
         temp.GetComponent<bulletcontroller>().direction = new Vector3(1, 1);
         temp = Instantiate(bulletPrefab, transform.position, transform.rotation);
