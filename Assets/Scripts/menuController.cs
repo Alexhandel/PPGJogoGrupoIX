@@ -77,6 +77,6 @@ public class menuController : MonoBehaviour
             difficultyKeeper.GetComponent<difficultyKeeeper>().enemyShieldTimer = 1f;
 
         }
-        musicEv.stop();
+        musicEv.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 }
