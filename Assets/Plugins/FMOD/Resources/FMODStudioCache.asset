@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: C:\Users\Luan\Documents\GitHub\PPGJogoGrupoIX\FMODBanks\Build\Desktop\GeneralUI.bank
-  lastModified: 637030673853021473
+  lastModified: 637026293450268455
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -64,7 +64,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 207
+  Length: 0
 --- !u!114 &-8199143306256000852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,11 +101,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: C:\Users\Luan\Documents\GitHub\PPGJogoGrupoIX\FMODBanks\Build\Desktop\Master.strings.bank
-  lastModified: 637030673853071476
+  lastModified: 637026293450378461
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1404
+    Value: 1216
   Exists: 1
 --- !u!114 &-6220812377558340369
 MonoBehaviour:
@@ -120,11 +120,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: C:\Users\Luan\Documents\GitHub\PPGJogoGrupoIX\FMODBanks\Build\Desktop\Characters.bank
-  lastModified: 637030673853001472
+  lastModified: 637026293450238453
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 68736
+    Value: 26368
   Exists: 1
 --- !u!114 &-5053863447886570974
 MonoBehaviour:
@@ -172,29 +172,6 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 75339
---- !u!114 &-1312966353785488132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Enemies/Witch/WitchSpellSplit
-  guid: c41afbff0e8afa4e81c638f8c051bea8
-  Banks:
-  - {fileID: -6220812377558340369}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 757
 --- !u!114 &-1162912765921791951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,35 +185,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: C:\Users\Luan\Documents\GitHub\PPGJogoGrupoIX\FMODBanks\Build\Desktop\Music.bank
-  lastModified: 637030673853281488
+  lastModified: 637026293450908492
   LoadResult: 0
   FileSizes:
   - Name: Desktop
     Value: 907584
   Exists: 1
---- !u!114 &-528208850959419171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Enemies/Witch/WitchSpellArea
-  guid: 8f1d33684309724d8706df16c37bc75b
-  Banks:
-  - {fileID: -6220812377558340369}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 750
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,15 +218,12 @@ MonoBehaviour:
   - {fileID: 9148816479290111801}
   - {fileID: 4448894743287657428}
   - {fileID: -5053863447886570974}
-  - {fileID: -528208850959419171}
-  - {fileID: 8877907301177294931}
-  - {fileID: -1312966353785488132}
   EditorParameters: []
   MasterBanks:
   - {fileID: 8446859464656897175}
   StringsBanks:
   - {fileID: -7926645805198942561}
-  stringsBankWriteTime: 637030673853071476
+  stringsBankWriteTime: 637026293450378461
   cacheVersion: 3
 --- !u!114 &4448894743287657428
 MonoBehaviour:
@@ -296,7 +247,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 138
+  Length: 0
 --- !u!114 &4736785597683051805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,7 +270,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 1055
+  Length: 0
 --- !u!114 &8446859464656897175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,35 +284,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: C:\Users\Luan\Documents\GitHub\PPGJogoGrupoIX\FMODBanks\Build\Desktop\Master.bank
-  lastModified: 637030673853051474
+  lastModified: 637026293450338459
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1128
+    Value: 976
   Exists: 1
---- !u!114 &8877907301177294931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Enemies/Witch/WitchSpellSeeking
-  guid: aa49b368956aa1468ec2051e1b3840eb
-  Banks:
-  - {fileID: -6220812377558340369}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 620
 --- !u!114 &9148816479290111801
 MonoBehaviour:
   m_ObjectHideFlags: 0
