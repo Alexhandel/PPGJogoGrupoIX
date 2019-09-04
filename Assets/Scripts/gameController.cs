@@ -26,7 +26,8 @@ public class gameController : MonoBehaviour, pausable
     {
         difficultyKeeper = GameObject.FindGameObjectWithTag("numberKeeper");
         bombLimit = difficultyKeeper.GetComponent<difficultyKeeeper>().bombNumber;
-        bombUI.GetComponent<TextMeshProUGUI>().text = "x " + bombLimit;
+
+        bombUI.GetComponent<TextMeshProUGUI>().text = "" + bombLimit;
         musicSystem.startMusic();
     }
 
@@ -70,7 +71,8 @@ public class gameController : MonoBehaviour, pausable
             Destroy(gameObjects[i]);
         }
         screenFlashPanelUI.SetActive(true);
-        bombUI.GetComponent<TextMeshProUGUI>().text = "x " + bombLimit;
+
+        bombUI.GetComponent<TextMeshProUGUI>().text = "" + bombLimit;
         FMODUnity.RuntimeManager.PlayOneShot(playerBombSound, transform.position);
     }
     public void gameReset()
