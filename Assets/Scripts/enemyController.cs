@@ -10,18 +10,24 @@ public class enemyController : MonoBehaviour, pausable
 {
     public GameObject player, bounceAttackPrefab, straightAttackPrefab, explodingAttackPrefab, homingAttackPrefab;
     public GameObject healthUI;
-    public Sprite phase2Face, phase3Face;
     private GameObject temp;
     private Vector3 heading;
     public float timer1, timer2, timer3, timer4, timer5, shieldTimer, phase2AttackSpeedMultiplier;
     public float attack1Time, attack2Time, attack3Time, attack4Time, attack5Time, shieldUpTime, shieldDownTime, attackSpeed;
     public int health;
     public bool alive, isShieldOn;
-    private int face, stage, maxHealth;
     public Vector3 direction1;
     public GameObject difficultyKeeper;
 
     public bool isPaused { get; set; }
+
+    [FMODUnity.EventRef]
+    public string enemyHurtSound = "event:/SFX/Enemies/Witch/WitchHit";
+    [FMODUnity.EventRef]
+    public string enemyShieldHitSound = "event:/SFX/Enemies/Witch/WitchShieldHit";
+    [FMODUnity.EventRef]
+    public string enemySpellAreaSound = "event:/SFX/Enemies/Witch/WitchSpellArea";
+    
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +39,6 @@ public class enemyController : MonoBehaviour, pausable
         timer1 = 0;
         alive = true;
         stage = 1;
-        face = 1;
         maxHealth = health;
         isShieldOn = true;
         attack1Time = attack1Time * attackSpeed;
@@ -50,18 +55,8 @@ public class enemyController : MonoBehaviour, pausable
         if (!isPaused)
         {
             healthUI.GetComponentInChildren<Slider>().value = health;
-            if (face==1 && health <= (2*maxHealth / 3))
-            {
-                healthUI.GetComponent<Image>().sprite = phase2Face;
-                face = 2;
-            }
-            else if (face == 2 && health <= (maxHealth / 3))
-            {
-                healthUI.GetComponent<Image>().sprite = phase3Face;
-            }
             if (stage == 1 && health <= (maxHealth / 2))
             {
-
                 timer1 = 0;
                 timer2 = 0;
                 timer3 = 0;
@@ -133,10 +128,15 @@ public class enemyController : MonoBehaviour, pausable
         Debug.Log("enemycollision");
         if (collision.tag=="playerAttack" && !isShieldOn)
         {
+            FMODUnity.RuntimeManager.PlayOneShot(enemyHurtSound, transform.position);
             health -= 1;
             isShieldOn = true;
             shieldTimer = 0;
             transform.Find("Enemy Shield").gameObject.SetActive(true);
+        }
+        if (collision.tag == "playerAttack" && isShieldOn)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(enemyShieldHitSound, transform.position);
         }
     }
     void straightAttack()
@@ -177,6 +177,7 @@ public class enemyController : MonoBehaviour, pausable
                 }
             }
         }
+        FMODUnity.RuntimeManager.PlayOneShot(enemySpellAreaSound, transform.position);
     }
     void homingAttack()
     {
