@@ -16,8 +16,10 @@ public class playercontroller : MonoBehaviour, pausable
     public int health, maxHealth;
     public bool alive, isShieldUp, isInvul;
     public Slider shieldGaugeSlider, healthSlider;
-    public Sprite front, back, left, right;
+    public Sprite front, back, left, right, noWeaponFront, noWeaponBack, noWeaponSide;
     public GameObject difficultyKeeper;
+    public SpriteRenderer spriteRenderer;
+    public string facing;
 
     public bool isPaused { get; set; }
 
@@ -58,15 +60,15 @@ public class playercontroller : MonoBehaviour, pausable
                 }
             }
             changeAttackPosition();
-            if (Input.GetKeyDown("space"))
+            if (Input.GetKeyDown("j") || Input.GetKeyDown("space"))
             {
                 playerAttack();
             }
-            if (Input.GetKeyDown("z"))
+            if (Input.GetKeyDown("k") || Input.GetKeyDown("z"))
             {
                 activateShield();
             }
-            if (Input.GetKeyUp("z"))
+            if (Input.GetKeyUp("k") || Input.GetKeyUp("z"))
             {
                 deactivateShield();
             }
@@ -88,19 +90,19 @@ public class playercontroller : MonoBehaviour, pausable
             }
             shieldGaugeSlider.value = currentShield;
             healthSlider.value = health;
-            if (Input.GetKey("up") && !(transform.position.y + radius > boundaryUp))
+            if ((Input.GetKey("w") || Input.GetKey("up")) && !(transform.position.y + radius > boundaryUp))
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y + speed);
             }
-            if (Input.GetKey("down") && !(transform.position.y - radius < boundaryDown))
+            if ((Input.GetKey("s") || Input.GetKey("down")) && !(transform.position.y - radius < boundaryDown))
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y - speed);
             }
-            if (Input.GetKey("left") && !(transform.position.x - radius < boundaryLeft))
+            if ((Input.GetKey("a") || Input.GetKey("left")) && !(transform.position.x - radius < boundaryLeft))
             {
                 transform.position = new Vector3(transform.position.x - speed, transform.position.y);
             }
-            if (Input.GetKey("right") && !(transform.position.x + radius > boundaryRight))
+            if ((Input.GetKey("d") || Input.GetKey("right")) && !(transform.position.x + radius > boundaryRight))
             {
                 transform.position = new Vector3(transform.position.x + speed, transform.position.y);
             }
@@ -115,7 +117,7 @@ public class playercontroller : MonoBehaviour, pausable
             FMODUnity.RuntimeManager.PlayOneShot(playerHurtSound, transform.position);
             health -= 1;
             isInvul = true;
-            this.gameObject.GetComponent<SpriteRenderer>().color = new Color(this.gameObject.GetComponent<SpriteRenderer>().color.r, this.gameObject.GetComponent<SpriteRenderer>().color.g, this.gameObject.GetComponent<SpriteRenderer>().color.b,0.3f);
+            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b,0.3f);
             if (health==0)
             {
                 alive = false;
@@ -129,29 +131,47 @@ public class playercontroller : MonoBehaviour, pausable
     }
     void changeAttackPosition()
     {
-        if (Input.GetKeyDown("up"))
+        if (Input.GetKeyDown("w") || Input.GetKeyDown("up"))
         {
             transform.rotation = Quaternion.Euler(0f, 0f, 90f);
-            gameObject.GetComponent<SpriteRenderer>().sprite = back;
+            spriteRenderer.sprite = back;
+            facing = "up";
         }
-        else if (Input.GetKeyDown("down"))
+        else if (Input.GetKeyDown("s") || Input.GetKeyDown("down"))
         {
             transform.rotation = Quaternion.Euler(0f, 0f, -90f);
-            gameObject.GetComponent<SpriteRenderer>().sprite = front;
-        } else if (Input.GetKeyDown("left"))
+            spriteRenderer.sprite = front;
+            facing = "down";
+        } else if (Input.GetKeyDown("a") || Input.GetKeyDown("left"))
         {
             transform.rotation = Quaternion.Euler(0f, 0f, 180f);
-            gameObject.GetComponent<SpriteRenderer>().sprite = left;
-        } else if (Input.GetKeyDown("right"))
+            spriteRenderer.sprite = left;
+            facing = "left";
+        } else if (Input.GetKeyDown("d") || Input.GetKeyDown("right"))
         {
             transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-            gameObject.GetComponent<SpriteRenderer>().sprite = right;
+            spriteRenderer.sprite = right;
+            facing = "right";
         }
     }
     void playerAttack()
     {
         transform.Find("player attack").gameObject.SetActive(true);
         FMODUnity.RuntimeManager.PlayOneShot(playerAtkSound, transform.position);
+        switch (facing)
+        {
+            case "up":
+                spriteRenderer.sprite = noWeaponBack;
+                break;
+            case "down":
+                spriteRenderer.sprite = noWeaponFront;
+                break;
+            case "left":
+                spriteRenderer.sprite = noWeaponSide;
+                break;
+            default:
+                break;
+        }
     }
     void activateShield()
     {

@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
-  speed: 0.011
+  speed: 0.008
   player: {fileID: 0}
   heading: {x: 0, y: 0, z: 0}
 --- !u!114 &3742074682872102678

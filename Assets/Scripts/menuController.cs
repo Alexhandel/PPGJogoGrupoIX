@@ -5,17 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class menuController : MonoBehaviour
 {
-    public GameObject difficultyKeeper, startUI, difficultyUI;
 
     [FMODUnity.EventRef]
     public string music = "event:/Music/Menu";
     FMOD.Studio.EventInstance musicEv;
+    public GameObject difficultyKeeper, startUI, difficultyUI, controlsUI;
+
     // Start is called before the first frame update
     void Start()
     {
-        difficultyKeeper = GameObject.FindGameObjectWithTag("numberKeeper");
         musicEv = FMODUnity.RuntimeManager.CreateInstance(music);
         musicEv.start();
+        difficultyKeeper = GameObject.FindGameObjectWithTag("numberKeeper");
+        difficultyKeeper.GetComponent<difficultyKeeeper>().hasParent = true;
     }
 
     // Update is called once per frame
@@ -31,6 +33,21 @@ public class menuController : MonoBehaviour
     {
         startUI.SetActive(false);
         difficultyUI.SetActive(true);
+    }
+    public void showControlUI()
+    {
+        startUI.SetActive(false);
+        controlsUI.SetActive(true);
+    }
+    public void hideControlUI()
+    {
+        controlsUI.SetActive(false);
+        startUI.SetActive(true);
+        
+    }
+    public void appExit()
+    {
+        Application.Quit();
     }
     public void changeDifficulty(string diffi)
     {
