@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using TMPro;
 
 public interface pausable
@@ -10,10 +11,12 @@ public interface pausable
 }
 public class gameController : MonoBehaviour, pausable
 {
-    public GameObject player, enemy;
-    public GameObject lossUI, victoryUI, screenFlashPanelUI, pauseUI, bombUI;
+    public GameObject player, enemy, camera1;
+    public GameObject lossUI, victoryUI, screenFlashPanelUI, pauseUI, bombUI, numberUI;
     private GameObject[] gameObjects, gameObjects2;
     public int bombLimit;
+    public float shakeDuration, shakeMagnitude;
+    public Sprite number0, number1, number2, number3, number4, number5;
     public GameObject difficultyKeeper;
 
     public bool isPaused { get ; set ; }
@@ -22,7 +25,27 @@ public class gameController : MonoBehaviour, pausable
     {
         difficultyKeeper = GameObject.FindGameObjectWithTag("numberKeeper");
         bombLimit = difficultyKeeper.GetComponent<difficultyKeeeper>().bombNumber;
-        bombUI.GetComponent<TextMeshProUGUI>().text = "" + bombLimit;
+        //bombUI.GetComponent<TextMeshProUGUI>().text = "" + bombLimit;
+        switch (bombLimit)
+        {
+            case 1:
+                numberUI.GetComponent<Image>().sprite = number1;
+                break;
+            case 2:
+                numberUI.GetComponent<Image>().sprite = number2;
+                break;
+            case 3:
+                numberUI.GetComponent<Image>().sprite = number3;
+                break;
+            case 4:
+                numberUI.GetComponent<Image>().sprite = number4;
+                break;
+            case 5:
+                numberUI.GetComponent<Image>().sprite = number5;
+                break;
+            default:
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -30,7 +53,7 @@ public class gameController : MonoBehaviour, pausable
     {
         if (!isPaused)
         {
-            if (Input.GetKeyDown("c") && bombLimit>0)
+            if ((Input.GetKeyDown("l") || Input.GetKeyDown("x")) && bombLimit>0)
             {
                 destroyAllEnemyAttacks();
             }
@@ -65,7 +88,31 @@ public class gameController : MonoBehaviour, pausable
             Destroy(gameObjects[i]);
         }
         screenFlashPanelUI.SetActive(true);
-        bombUI.GetComponent<TextMeshProUGUI>().text = "" + bombLimit;
+        camera1.GetComponent<screenShakeScript>().TriggerShake(shakeDuration, shakeMagnitude);
+        //bombUI.GetComponent<TextMeshProUGUI>().text = "" + bombLimit;
+        switch (bombLimit)
+        {
+            case 0:
+                numberUI.GetComponent<Image>().sprite = number0;
+                break;
+            case 1:
+                numberUI.GetComponent<Image>().sprite = number1;
+                break;
+            case 2:
+                numberUI.GetComponent<Image>().sprite = number2;
+                break;
+            case 3:
+                numberUI.GetComponent<Image>().sprite = number3;
+                break;
+            case 4:
+                numberUI.GetComponent<Image>().sprite = number4;
+                break;
+            case 5:
+                numberUI.GetComponent<Image>().sprite = number5;
+                break;
+            default:
+                break;
+        }
     }
     public void gameReset()
     {
@@ -76,6 +123,10 @@ public class gameController : MonoBehaviour, pausable
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
+    }
+    public void appExit()
+    {
+        Application.Quit();
     }
 
     void gamePause()
