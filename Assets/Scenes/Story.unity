@@ -325,7 +325,9 @@ MonoBehaviour:
   text: {fileID: 821148976}
   time: 0
   waitTime: 3
+  fadeoutTime: 2
   isDone: 0
+  color: {r: 0.7176471, g: 0.6627451, b: 0.7921569, a: 1}
 --- !u!4 &622316893
 Transform:
   m_ObjectHideFlags: 0
