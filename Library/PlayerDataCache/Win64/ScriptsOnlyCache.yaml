@@ -16,6 +16,8 @@ ScriptsOnlyBuild:
     - screenShakeScript
     - selfDestructor
     - selfDisabler
+    - storyController
+    - textTyper
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -159,13 +161,9 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
-    - Class: 49
-      Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 104
-      Script: {instanceID: 0}
-    - Class: 109
       Script: {instanceID: 0}
     - Class: 114
       Script: {instanceID: 9838}
@@ -176,13 +174,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10972}
     - Class: 114
-      Script: {instanceID: 11018}
-    - Class: 114
       Script: {instanceID: 11710}
     - Class: 114
       Script: {instanceID: 12062}
-    - Class: 114
-      Script: {instanceID: 12082}
     - Class: 114
       Script: {instanceID: 12198}
     - Class: 114
@@ -191,8 +185,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12510}
     - Class: 114
       Script: {instanceID: 12612}
-    - Class: 114
-      Script: {instanceID: 12822}
     - Class: 114
       Script: {instanceID: 13188}
     - Class: 115
@@ -204,6 +196,63 @@ ScriptsOnlyBuild:
     - Class: 212
       Script: {instanceID: 0}
     - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Story.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 109
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 9838}
+    - Class: 114
+      Script: {instanceID: 10622}
+    - Class: 114
+      Script: {instanceID: 10972}
+    - Class: 114
+      Script: {instanceID: 11018}
+    - Class: 114
+      Script: {instanceID: 12062}
+    - Class: 114
+      Script: {instanceID: 12082}
+    - Class: 114
+      Script: {instanceID: 12390}
+    - Class: 114
+      Script: {instanceID: 12510}
+    - Class: 114
+      Script: {instanceID: 12822}
+    - Class: 114
+      Script: {instanceID: 13188}
+    - Class: 114
+      Script: {instanceID: 17820}
+    - Class: 114
+      Script: {instanceID: 17826}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
       Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
@@ -920,8 +969,21 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 8f751510d39c0cdff5d235764d520b37
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: storyController
+  - hash:
+      serializedVersion: 2
+      Hash: 8189f327a63577e6f9b911cf2a4a27a3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: textTyper
   platform: 19
   scenePathNames:
+  - Assets/Scenes/Story.unity
   - Assets/Scenes/Start Menu.unity
   - Assets/Scenes/Battle.unity
   playerPath: C:/Users/Alex Handel/Desktop/Shake Test Build/PPGjogo.exe
