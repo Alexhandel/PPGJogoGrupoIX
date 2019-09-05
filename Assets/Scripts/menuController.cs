@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class menuController : MonoBehaviour
 {
-
+    [FMODUnity.EventRef]
+    public string uiButtonSound = "event:/SFX/UI/DefaultButtonAction";
     [FMODUnity.EventRef]
     public string music = "event:/Music/Menu";
     FMOD.Studio.EventInstance musicEv;
@@ -44,6 +45,10 @@ public class menuController : MonoBehaviour
         controlsUI.SetActive(false);
         startUI.SetActive(true);
         
+    }
+    public void playUISound()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(uiButtonSound, transform.position);
     }
     public void appExit()
     {

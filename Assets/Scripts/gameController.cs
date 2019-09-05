@@ -22,6 +22,8 @@ public class gameController : MonoBehaviour, pausable
 
     [FMODUnity.EventRef]
     public string playerBombSound = "event:/SFX/Player/EnzoBomb";
+    [FMODUnity.EventRef]
+    public string uiButtonSound = "event:/SFX/UI/DefaultButtonAction";
 
     public bool isPaused { get ; set ; }
 
@@ -78,11 +80,13 @@ public class gameController : MonoBehaviour, pausable
     }
     void activateLossScreen()
     {
-        lossUI.SetActive(true);   
+        musicSystem.PlayLoserMusic();
+        lossUI.SetActive(true);
     }
     void activateVictoryScreen()
     {
-        victoryUI.SetActive(true);
+        musicSystem.PlayWinnerMusic();
+        victoryUI.SetActive(true); 
     }
     void destroyAllEnemyAttacks()
     {
@@ -141,6 +145,7 @@ public class gameController : MonoBehaviour, pausable
     {
         pauseUI.SetActive(true);
         isPaused = true;
+        musicSystem.SetPaused(1f);
         Time.timeScale = 0f;
         gameObjects2 = FindObjectsOfType<GameObject>();
         for (var i = 0; i < gameObjects2.Length; i++)
@@ -156,6 +161,7 @@ public class gameController : MonoBehaviour, pausable
     {
         pauseUI.SetActive(false);
         isPaused = false;
+        musicSystem.SetPaused(0f);
         gameObjects2 = FindObjectsOfType<GameObject>();
         Time.timeScale = 1f;
         for (var i = 0; i < gameObjects2.Length; i++)
@@ -166,5 +172,9 @@ public class gameController : MonoBehaviour, pausable
             }
 
         }
+    }
+    public void playUISound()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(uiButtonSound, transform.position);
     }
 }

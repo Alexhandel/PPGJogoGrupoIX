@@ -24,36 +24,28 @@ public class MusicController : MonoBehaviour
 
     public void startMusic()
     {
+        musicEv.setParameterByName("IsDead", 0f);
+        musicEv.setParameterByName("IsWinner", 0f);
         musicEv.start();
     }
 
-    public void setGamePaused()
-    {
-        
-    }
-
     // Player has clicked "Play Now"
-    /*public void GameStartedMusic()
+
+    public void PlayLoserMusic()
     {
-        musicEv.setParameterByName("GameStarted", 1f);
+        musicEv.setParameterByName("isLoser", 1f);
     }
 
-    // Player is less than 50% health
-    public void LoHealthMusic()
+    public void PlayWinnerMusic()
     {
-        musicEv.setParameterByName("LoHealth", 1f);
+        musicEv.setParameterByName("IsWinner", 1f);
     }
 
-    public void IsDeadMusic()
+    public void SetPaused(float value)
     {
-        musicEv.setParameterByName("IsDead", 1f);
+        musicEv.setParameterByName("isPaused", value);
     }
-
-    public void SetHeartbeat(float value)
-    {
-        playerHeartbeatEv.setParameterByName("Health", value);
-    }
-    */
+    
     // Update is called once per frame
     void Update()
     {
