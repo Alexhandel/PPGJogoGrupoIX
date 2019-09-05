@@ -141,23 +141,18 @@ public class enemyController : MonoBehaviour, pausable
     }
     void straightAttack()
     {
-        Debug.Log("atacou");
         temp=Instantiate(straightAttackPrefab,transform.position,transform.rotation);
         heading = transform.position - player.transform.position;
         temp.GetComponent<bulletcontroller>().direction = -((heading) / heading.magnitude);
     }
     void bounceAttack()
     {
-        Debug.Log("bouncy");
         temp = Instantiate(bounceAttackPrefab, transform.position, transform.rotation);
-        // heading = transform.position - player.transform.position;
-        //temp.GetComponent<bounceBulletController>().direction = -((heading) / heading.magnitude);
         temp.GetComponent<bounceBulletController>().direction = new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)); 
         
     }
     void explodingAttack()
     {
-        Debug.Log("explody");
         temp = Instantiate(explodingAttackPrefab, transform.position, transform.rotation);
         heading = transform.position - player.transform.position;
         temp.GetComponent<explodingBulletController>().direction = -((heading) / heading.magnitude);

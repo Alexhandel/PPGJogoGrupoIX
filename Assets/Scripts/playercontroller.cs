@@ -104,7 +104,6 @@ public class playercontroller : MonoBehaviour, pausable
         //Debug.Log("colidiuAA");
         if (collision.tag == "attack" && !isShieldUp && !isInvul)
         {
-            Debug.Log("colidiuAA");
             health -= 1;
             isInvul = true;
             spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b,0.3f);
