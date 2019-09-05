@@ -117,12 +117,12 @@ public class gameController : MonoBehaviour, pausable
     public void gameReset()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
     public void goToMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
     public void appExit()
     {
