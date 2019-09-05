@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8177449913114519198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: isLoser
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 0
 --- !u!114 &-8132196499783757327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36,12 +53,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: C:\Users\Luan\Documents\GitHub\PPGJogoGrupoIX\FMODBanks\Build\Desktop\GeneralUI.bank
-  lastModified: 637032450627834303
+  lastModified: 637032456720622791
   LoadResult: 0
   FileSizes:
   - Name: Desktop
     Value: 2784
   Exists: 1
+--- !u!114 &-7717440281629880163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: snapshot:/Normal
+  guid: 4feeaecdd709d542818801084991205f
+  Banks:
+  - {fileID: 194018760417986499}
+  - {fileID: 5821670526051793257}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &-7692624689875677151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,6 +147,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: isWinner
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 0
+--- !u!114 &-6316732324570649711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: isPaused
   Min: 0
   Max: 2
   Default: 0
@@ -335,11 +393,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: C:\Users\Luan\Documents\GitHub\PPGJogoGrupoIX\FMODBanks\Build\Desktop\Master.strings.bank
-  lastModified: 637032450627894307
+  lastModified: 637032456720702795
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1644
+    Value: 1812
   Exists: 1
 --- !u!114 &-1049143111516075220
 MonoBehaviour:
@@ -442,12 +500,14 @@ MonoBehaviour:
   - {fileID: -8132196499783757327}
   - {fileID: 3464171805031033784}
   - {fileID: -5401557951575295924}
+  - {fileID: -7717440281629880163}
+  - {fileID: 5468530811195383288}
   EditorParameters: []
   MasterBanks:
   - {fileID: 194018760417986499}
   StringsBanks:
   - {fileID: -1273301499974049993}
-  stringsBankWriteTime: 637032450627894307
+  stringsBankWriteTime: 637032456720702795
   cacheVersion: 3
 --- !u!114 &194018760417986499
 MonoBehaviour:
@@ -462,11 +522,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: C:\Users\Luan\Documents\GitHub\PPGJogoGrupoIX\FMODBanks\Build\Desktop\Master.bank
-  lastModified: 637032450627874305
+  lastModified: 637032456720682794
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1128
+    Value: 2986
   Exists: 1
 --- !u!114 &278197623781398389
 MonoBehaviour:
@@ -481,7 +541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: C:\Users\Luan\Documents\GitHub\PPGJogoGrupoIX\FMODBanks\Build\Desktop\Characters.bank
-  lastModified: 637032450627524285
+  lastModified: 637032456720332774
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -505,6 +565,23 @@ MonoBehaviour:
   Default: 0
   Exists: 0
 --- !u!114 &1095603277945897778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: isWinner
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 0
+--- !u!114 &1533398685290300995
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -686,6 +763,30 @@ MonoBehaviour:
   Max: 2
   Default: 0
   Exists: 0
+--- !u!114 &5468530811195383288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: snapshot:/Paused
+  guid: efc7d59f9a263d4d8daf491fdb3d5c2e
+  Banks:
+  - {fileID: 194018760417986499}
+  - {fileID: 5821670526051793257}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &5504751657166730795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -722,11 +823,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: C:\Users\Luan\Documents\GitHub\PPGJogoGrupoIX\FMODBanks\Build\Desktop\Music.bank
-  lastModified: 637032450628574345
+  lastModified: 637032456723552958
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 2287456
+    Value: 2289088
   Exists: 1
 --- !u!114 &6249446497137237524
 MonoBehaviour:
@@ -748,8 +849,9 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -4991429203871595344}
-  - {fileID: -106416570734893446}
+  - {fileID: -8177449913114519198}
+  - {fileID: 1533398685290300995}
+  - {fileID: -6316732324570649711}
   MinDistance: 0
   MaxDistance: 0
   Length: 100000
