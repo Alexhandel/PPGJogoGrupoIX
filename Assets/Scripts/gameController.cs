@@ -128,13 +128,13 @@ public class gameController : MonoBehaviour, pausable
     {
         Time.timeScale = 1f;
         musicSystem.stopMusic();
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
     public void goToMenu()
     {
         Time.timeScale = 1f;
         musicSystem.stopMusic();
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
     public void appExit()
     {
